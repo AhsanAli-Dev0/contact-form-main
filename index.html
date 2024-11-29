@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Contact form</title>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">
+      <h1>contact us</h1>
+    </div>
+     <form id="contactForm" >
+      <div class="flex">
+<div class="col-6">
+       <label for="fname">First Name *</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    </div>
+    <div class="col-6">
+       <label for="lname">Last Name *</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    </div>
+      </div>
+    
+    <div class="col">
+       <label for="email">Email *</label>
+      <input type="email" id="email" name="email" placeholder="Your Email..">
+    </div>
+    <label for="query"> Query Type *</label>
+    <div class="flex">
+    <div class="col-6">
+      <div class="radio-wrraper">
+        <label for="radio"><input type="radio" name="query" id="radio"> Gernel Enquery</label>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="radio-wrraper">
+        <label for="radio"><input type="radio" name="query" id="radio"> Support Request</label>
+      </div>
+    </div>
+  </div>
+   
+     
+  <label for="subject">Message *</label>
+  <textarea id="subject" rows="5"  name="subject" ></textarea>
+  
+  
+  <label for="checkbox"><input type="checkbox" name="checkbox" id="checkbox"> I consent to being contacted by the team</label>
+
+      <input type="submit"  value="Submit">
+  
+    </form>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <p> <a href="https://https://github.com/AhsanAli-Dev0">github</a>.Ahsan Ali</p>
+  </div>
+  <script>
+    const form = document.getElementById("contactForm");
+    const inputs = document.querySelectorAll("input, textarea");
+
+    form.addEventListener("submit", function(event) {
+
+      let isValid = true;
+
+      inputs.forEach(input => {
+        if (input.type !== "checkbox" && input.value.trim() === "") {
+          isValid = false;
+        } 
+      });
+
+      if (!isValid) {
+        event.preventDefault(); 
+        alert("Please fill out all required fields.");
+      } else {
+        alert("Thanks for submitting the form. We'll be in touch soon!");
+      }
+    });
+</script>
+</body>
+</html>
